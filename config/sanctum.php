@@ -21,6 +21,7 @@ return [
         Sanctum::currentApplicationUrlWithPort()
     ))),
 
+    'expiration' => 60 * 24,
     /*
     |--------------------------------------------------------------------------
     | Sanctum Guards

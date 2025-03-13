@@ -8,6 +8,7 @@ use App\Http\Traits\CanLoadRelationships;
 use App\Models\Attendee;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class AttendeeController extends Controller
 {
@@ -28,7 +29,7 @@ class AttendeeController extends Controller
     {
         $attendee = $this->loadRelationships($event->attendees()->create(
             [
-                'user_id' => 1
+                'user_id' => $request->user()->id
             ]
         ));
 
@@ -54,6 +55,9 @@ class AttendeeController extends Controller
      */
     public function destroy(Event $event, Attendee $attendee)
     {
+        if (Gate::denies('delete-attendee', $attendee)) {
+            abort(403, 'You are not authorized to delete this attendee');
+        }
         $attendee->delete();
 
         return response(status: 204);

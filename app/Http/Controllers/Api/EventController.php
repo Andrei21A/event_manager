@@ -7,6 +7,8 @@ use App\Http\Resources\EventResource;
 use App\Http\Traits\CanLoadRelationships;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+
 
 class EventController extends Controller
 {
@@ -14,13 +16,9 @@ class EventController extends Controller
 
     private array $relations = ['user', 'attendees', 'attendees.user'];
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $query = Event::query();
-
         foreach ($this->relations as $relation) {
             $query->when(
                 $this->shouldIncludeRelation($relation),
@@ -54,6 +52,10 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        if (!$request->user()) {
+            return response()->json(['message' => 'Unauthenticated'], 401);
+        }
+
         $event = Event::create([
             ...$request->validate([
                 'name' => 'required|string|max:255',
@@ -61,25 +63,23 @@ class EventController extends Controller
                 'start_time' => 'required|date',
                 'end_time' => 'required|date|after:start_time',
             ]),
-            'user_id' => 1,
+            'user_id' => $request->user()->id,
         ]);
 
         return new EventResource($this->loadRelationships($event));
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Event $event)
     {
         return new EventResource($this->loadRelationships($event));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, Event $event)
     {
+        if (Gate::denies('update-post', $event)) {
+            abort(403, 'You are not authorized to update this event');
+        }
         $event->update(
             $request->validate([
                 'name' => 'sometimes|string|max:255',

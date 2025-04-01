@@ -6,12 +6,6 @@
 </a>
 </p>
 
-<p align="center">
-<a href="https://github.com/your-repo/actions"><img src="https://github.com/your-repo/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/your-package"><img src="https://img.shields.io/packagist/dt/your-package" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/your-package"><img src="https://img.shields.io/packagist/v/your-package" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/your-package"><img src="https://img.shields.io/packagist/l/your-package" alt="License"></a>
-</p>
 
 ## About the Project
 

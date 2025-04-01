@@ -27,12 +27,9 @@ The **Event Management API** is a robust RESTful API built with Laravel that emp
 
 | Feature | Description |
 |---------|-------------|
-| 🔐 **JWT Authentication** | Secure user login and registration |
 | 🎪 **Event CRUD Operations** | Create, read, update, and delete events |
 | 👥 **Attendee Management** | Register and track event participants |
 | 🔍 **Advanced Search** | Filter events by date, location, category |
-| 👨‍💼 **Role-Based Access** | Admin, Organizer, and User roles |
-| 🔔 **Notifications** | Email reminders and updates |
 | 🛡️ **Rate Limiting** | API request throttling for security |
 
 ---

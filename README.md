@@ -6,14 +6,6 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/your-repo/actions"><img src="https://img.shields.io/github/actions/workflow/status/your-repo/event-management-api/tests.yml?label=Tests&style=for-the-badge" alt="Build Status"></a>
-  <a href="https://packagist.org/packages/your-package"><img src="https://img.shields.io/packagist/dt/your-package?color=blue&style=for-the-badge" alt="Total Downloads"></a>
-  <a href="https://packagist.org/packages/your-package"><img src="https://img.shields.io/packagist/v/your-package?color=green&style=for-the-badge" alt="Latest Version"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License"></a>
-</p>
-
----
 
 ## ✨ About the Project
 

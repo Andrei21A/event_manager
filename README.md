@@ -11,10 +11,6 @@
 
 The **Event Management API** is a robust RESTful API built with Laravel that empowers users to create, manage, and track events with ease. Perfect for event organizers and attendees alike!
 
-![API Demo](https://via.placeholder.com/800x400.png?text=Event+Management+API+Demo) <!-- Replace with actual screenshot -->
-
----
-
 ## 🚀 Key Features
 
 | Feature | Description |
